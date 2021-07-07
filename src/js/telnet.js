@@ -122,7 +122,8 @@ TelnetConnection.prototype._onDataAvailable = function(e) {
           this._sendRaw( IAC + WILL + ch );
           break;
         case NAWS:
-          this.dispatchEvent(new CustomEvent('doNaws'));
+          //this.dispatchEvent(new CustomEvent('doNaws'));
+          this._sendRaw( IAC + WONT + ch );
           break;
         default:
           this._sendRaw( IAC + WONT + ch );
